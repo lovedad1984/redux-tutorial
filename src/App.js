@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {connect} from "react-redux";
 
 function App() {
   return (
@@ -23,4 +24,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  //props: state
+  products: state.productReducer,
+  user: state.userReducer
+})
+
+export default connect(mapStateToProps)(App);
